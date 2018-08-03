@@ -1,0 +1,40 @@
+/* -------------------- Basic --------------------*/
+
+p {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 17px; }
+
+.bgcolor {
+  background: #F0F2F5;
+}
+
+/* -------------------------- Card ------------------------*/
+.custom-card {
+    margin-bottom: 1.875rem;
+    margin: 7px;
+    background: #fff;
+    border: none;
+    box-shadow: 0 1px 15px 1px rgba(62, 57, 107, 0.07);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid transparent;
+    border-radius: .35rem;
+    margin: 20px;
+    background-clip: border-box; }
+  
+.card-header {
+  padding: 15px;
+  margin-bottom: 0;
+  text-align: left; }
+
+.card-content {
+  padding: 15px; }
+
+.custom-card-content {
+  vertical-align: middle;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; }
