@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Spin } from 'antd';
 import { Grid } from 'react-bootstrap';
+import Websocket from 'react-websocket';
+
 import TransactionLogActions from '../../Actions/TransactionLogActions';
 import TransactionLog from './TransactionLog';
+
 
 /* -------------------- Redux store to props --------------------*/
 function mapStateToProps(state) {
@@ -21,6 +24,13 @@ export class TransactionLogContainer extends Component {
   componentWillMount() {
     this.props.dispatch(TransactionLogActions());
   }
+
+  handleData = (data) =>  {
+    let result = JSON.parse(data);
+    this.setState({count: this.state.count + result.movement});
+  }
+
+
 
   render() {
     if (this.props.fetching) {

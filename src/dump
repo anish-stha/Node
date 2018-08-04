@@ -1,0 +1,46 @@
+    stompClient.subscribe('/topic/stats', () => {console.log('subscribed to stats')});
+    stompClient.subscribe('/topic/transactions', () => {console.log('subscribed to transactions')});
+    stompClient.subscribe('/topic/files', () => {console.log('subscribed to files')});
+    
+
+
+            this.connection = new SockJS('http://192.168.100.17:8080/socket');
+        this.stompClient = webstomp.over(this.connection);
+        this.stompClient.connect({}, ()=>{
+            this.stompClient.subscribe('/topic/ping', () => {console.log('subscribed to ping')});
+
+            this.stompClient.subscribe('/topic/stats', () => {console.log('subscribed to stats')});
+            
+            this.stompClient.subscribe('/topic/transactions', () => {console.log('subscribed to transactions')});
+            
+            this.stompClient.subscribe('/topic/files', () => {console.log('subscribed to files')});
+            
+            this.stompClient.send("/app/ping",{},{})
+
+            this.stompClient.send("/app/files",{},{})
+
+            this.stompClient.send("/app/stats",{},{})
+
+            this.stompClient.send("/app/transactions",{},{})  
+        });
+       
+
+
+         <SockJsClient url='http://192.168.100.17:8080/socket' topics={['/topic/files']}
+                        onConnect={() => {console.log('Connected using Files'); }}
+                        onMessage={(msg) => {console.log("Received message######", msg) }}
+                        ref={ (client) => { this.filesSocketRef = client }} />
+
+
+                        availableTokens
+:
+0
+lockedDepositTokens
+:
+0
+lockedEarningTokens
+:
+0
+transactions
+:
+[]

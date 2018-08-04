@@ -4,70 +4,20 @@ import { connect } from 'react-redux';
 import { Row, Col, Card, List, Avatar } from 'antd';
 import PageHeader from 'ant-design-pro/lib/PageHeader';
 
+import Websocket from 'react-websocket';
 import TransactionLog from './Components/TransactionLog/TransactionLogContainer';
-
-
-const links = [
-  {
-    title: '操作一',
-    href: '',
-  },
-  {
-    title: '操作二',
-    href: '',
-  },
-  {
-    title: '操作三',
-    href: '',
-  },
-  {
-    title: '操作四',
-    href: '',
-  },
-  {
-    title: '操作五',
-    href: '',
-  },
-  {
-    title: '操作六',
-    href: '',
-  },
-];
-
-const members = [
-  {
-    id: 'members-1',
-    title: '科学搬砖组',
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
-    link: '',
-  },
-  {
-    id: 'members-2',
-    title: '程序员日常',
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/cnrhVkzwxjPwAaCfPbdc.png',
-    link: '',
-  },
-  {
-    id: 'members-3',
-    title: '设计天团',
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/gaOngJwsRYRaVAuXXcmB.png',
-    link: '',
-  },
-  {
-    id: 'members-4',
-    title: '中二少女团',
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/ubnKSIfAJTxIgXOKlciN.png',
-    link: '',
-  },
-  {
-    id: 'members-5',
-    title: '骗你学计算机',
-    logo: 'https://gw.alipayobjects.com/zos/rmsportal/WhxKECPNujWoWEFNdnJE.png',
-    link: '',
-  },
-];
-
 export default class MainPage extends PureComponent {
+
+  
+  handleData = (data) =>  {
+    let result = JSON.parse(data);
+    // this.setState({count: this.state.count + result.movement});
+  }
+
+  renderWebsocket = () => (
+    <Websocket url='transactionurl'
+    onMessage={this.handleData.bind(this)}/>
+  );
 
    render() {
 

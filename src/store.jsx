@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'C:/Users/anish/AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
