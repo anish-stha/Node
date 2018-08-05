@@ -8,6 +8,17 @@ p {
   background: #F0F2F5;
 }
 
+.big{
+  font-size: 72px;
+}
+
+.small{
+  font-size: 8px;
+}
+
+.medium{
+  font-size: 50px;
+}
 /* -------------------------- Card ------------------------*/
 .custom-card {
     margin-bottom: 1.875rem;

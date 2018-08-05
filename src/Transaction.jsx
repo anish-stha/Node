@@ -7,6 +7,8 @@ import webstomp from 'webstomp-client';
 import SockJsClient from 'react-stomp';
 import Websocket from 'react-websocket';
 
+import BaseUrl from './BaseUrl';
+
 
 export default class Transaction extends Component {
 
@@ -14,11 +16,12 @@ export default class Transaction extends Component {
         super(props);
         this.state = {
             transactions : [],
+            loading: true,
         };  
     }
 
     componentDidMount(){
-        this.connection = new SockJS('http://192.168.100.17:8080/socket');
+        this.connection = new SockJS(BaseUrl);
         this.stompClient = webstomp.over(this.connection);
         this.stompClient.connect({}, ()=>{
             this.subscription = this.stompClient.subscribe('/topic/transactions', (message) => {this.handleData(message.body)});
@@ -27,7 +30,8 @@ export default class Transaction extends Component {
     }
 
     componentWillUnmount(){
-        this.subscription.unsubscribe({});
+        if(this.subscription !== undefined)
+            this.subscription.unsubscribe({});
     }
 
 
@@ -49,15 +53,21 @@ export default class Transaction extends Component {
                         style={{ margin: 20 }}
                         title="Transactions"
                         bordered={false}
-                        loading={true}
+                        loading={this.state.loading}
                         bodyStyle={{ padding: 0 }}>
-                            <List loading={true} size="large">
-                            {
-                                this.state.transactions.map(item => (
-                                    <List.Item></List.Item>
-                                ))
-                            }
-                            </List>
+                        <List 
+                            loading={this.state.loading} 
+                            size="large"
+                            dataSource={this.state.transactions}
+                            renderItem={item=>(
+                                <List.Item key={item.hash}>
+                                <List.Item.Meta
+                                    title={item.hash}
+                                    description={item.hash}
+                                />
+                               </List.Item>
+                            )}
+                        />
                         </Card>
                     </Col>
                 </Row>

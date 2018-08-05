@@ -1,4 +1,4 @@
-import { combineReducers } from 'C:/Users/anish/AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
+import { combineReducers } from 'redux';
 
 import TransactionLogReducer from './TransactionLogReducer';
 
