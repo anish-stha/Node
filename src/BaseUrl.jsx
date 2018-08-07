@@ -1,3 +1,3 @@
-const baseUrl = 'http://192.168.100.17:8083/socket';
+const baseUrl = 'http://192.168.43.253:8080/socket';
 
 export default baseUrl;

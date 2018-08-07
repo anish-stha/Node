@@ -70,13 +70,7 @@ export default class NodeInfo extends Component {
         <Col sm={16}>
           <div>
             <div>
-              <p>Node id: 22</p>
-            </div>
-            <div>
-              <p>Public key: 3243242342325232342342fadfafaddasdas</p>
-            </div>
-            <div>
-              <p>Private key: 341414124141431414141323542434352525335223523532523</p>
+              <p>Node id: node5</p>
             </div>
           </div>
         </Col>
